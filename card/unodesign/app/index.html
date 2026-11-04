@@ -1106,8 +1106,7 @@
 
             function buildShareText(prof) {
                 if (!prof) return "";
-                return "[" + COMPANY_NAME + "] " + prof.ownerName + " 전자명함
-" + getCardCloudUrl(prof);
+                return "[" + COMPANY_NAME + "] " + prof.ownerName + " 전자명함\n" + getCardCloudUrl(prof);
             }
 
             async function shareViaKakaoOrChooser() {
