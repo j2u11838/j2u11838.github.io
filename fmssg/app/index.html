@@ -1000,28 +1000,21 @@
         </div>
     </div>
 
-    <!-- [100% 로컬 무서버 내장 전자명함 뷰어 모달] 명함 안의 전화/메일/홈페이지 터치 연결 + 하단 문자/카톡 전송 -->
-    <div class="modal-dim" id="offlineCardViewerModal">
-        <div class="modal-box" style="max-width:480px;">
-            <div class="modal-head">
-                <h2 id="offlineCardModalTitle">전자명함</h2>
-                <button type="button" class="modal-close" id="btnCloseOfflineCardModal">✕</button>
-            </div>
-            <div class="modal-content" style="gap:10px;">
-                <div style="position:relative;width:100%;border-radius:12px;overflow:hidden;border:1.5px solid #CBD5E1;background:#EEEBE6;">
-                    <img id="offlineCardModalImg" src="" alt="전자명함" style="display:block;width:100%;height:auto;">
-                    <a id="offlineHotspotBg" href="https://fmssg.co.kr" style="position:absolute;inset:0;z-index:2;"></a>
-                    <a id="offlineHotspotLogo" href="https://fmssg.co.kr" style="position:absolute;left:3%;top:10%;width:34%;height:78%;z-index:4;"></a>
-                    <a id="offlineHotspotKakao" href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" title="카카오톡 채널 바로가기" style="position:absolute;right:2.5%;top:3.5%;width:22%;height:11%;z-index:8;display:block;"></a>
-                    <a id="offlineHotspotPhone" href="tel:" style="position:absolute;left:37%;top:45.5%;width:60%;height:10.5%;z-index:6;"></a>
-                    <a id="offlineHotspotPhoneScan" href="tel:" style="position:absolute;left:4%;top:71%;width:44%;height:11.5%;z-index:6;"></a>
-                    <a id="offlineHotspotEmail" href="mailto:" style="position:absolute;left:37%;top:55.7%;width:60%;height:10%;z-index:6;"></a>
-                    <a id="offlineHotspotEmailScan" href="mailto:" style="position:absolute;left:48%;top:71%;width:44%;height:11.5%;z-index:6;"></a>
-                    <a id="offlineHotspotWeb" href="https://fmssg.co.kr" style="position:absolute;left:37%;top:65.7%;width:60%;height:10%;z-index:6;"></a>
-                    <a id="offlineHotspotAddr" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" style="position:absolute;left:37%;top:76%;width:60%;height:12%;z-index:6;"></a>
-                </div>
-
-            </div>
+    <!-- [전자명함 단독 뷰어 모달] 다크 배경 중앙에 오직 명함 1장만 표시하며 항목 터치 시 즉시 연결 -->
+    <div class="modal-dim" id="offlineCardViewerModal" style="background:#14161A;padding:18px;">
+        <div style="width:100%;max-width:440px;position:relative;border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,0.45);background:#FFFFFF;">
+            <span id="offlineCardModalTitle" style="display:none;"></span>
+            <button type="button" id="btnCloseOfflineCardModal" style="display:none;">✕</button>
+            <img id="offlineCardModalImg" src="" alt="전자명함" style="display:block;width:100%;height:auto;">
+            <a id="offlineHotspotBg" href="https://fmssg.co.kr" style="position:absolute;inset:0;z-index:2;"></a>
+            <a id="offlineHotspotLogo" href="https://fmssg.co.kr" style="position:absolute;left:3%;top:10%;width:34%;height:78%;z-index:4;"></a>
+            <a id="offlineHotspotKakao" href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" title="카카오톡 채널 바로가기" style="position:absolute;right:2.5%;top:3.5%;width:22%;height:11%;z-index:8;display:block;"></a>
+            <a id="offlineHotspotPhone" href="tel:" style="position:absolute;left:37%;top:45.5%;width:60%;height:10.5%;z-index:6;"></a>
+            <a id="offlineHotspotPhoneScan" href="tel:" style="position:absolute;left:4%;top:71%;width:44%;height:11.5%;z-index:6;"></a>
+            <a id="offlineHotspotEmail" href="mailto:" style="position:absolute;left:37%;top:55.7%;width:60%;height:10%;z-index:6;"></a>
+            <a id="offlineHotspotEmailScan" href="mailto:" style="position:absolute;left:48%;top:71%;width:44%;height:11.5%;z-index:6;"></a>
+            <a id="offlineHotspotWeb" href="https://fmssg.co.kr" style="position:absolute;left:37%;top:65.7%;width:60%;height:10%;z-index:6;"></a>
+            <a id="offlineHotspotAddr" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" style="position:absolute;left:37%;top:76%;width:60%;height:12%;z-index:6;"></a>
         </div>
     </div>
 
