@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,48 +15,24 @@
     <meta property="og:image:width" content="1020">
     <meta property="og:image:height" content="540">
     <title>[주식회사 에프엠] 장정원 전자명함</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html, body {
             width: 100%; min-height: 100dvh;
             background: #14161A;
-            font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-            color: #F4F5F7;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 18px 14px calc(24px + env(safe-area-inset-bottom, 0px));
         }
-        .dark-card-wrap {
-            width: 100%; max-width: 480px;
-            display: flex; flex-direction: column; gap: 10px;
-        }
-        .top-header-line {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 4px;
-        }
-        .top-header-title {
-            font-size: 15.5px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .btn-top-gear {
-            width: 34px; height: 34px; border-radius: 10px;
-            background: #26282C; border: 1px solid #3A3D45;
-            color: #D4D7DF; font-size: 16px; font-weight: 800;
-            display: inline-flex; align-items: center; justify-content: center;
-            text-decoration: none; cursor: pointer; flex-shrink: 0;
-        }
-        .kakao-dark-card {
-            width: 100%;
-            background: #26282C;
-            border: 1.5px solid #363940;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
+        .card-only-wrap {
+            width: 100%; max-width: 540px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         .card-img-box {
             position: relative; width: 100%;
             background: #FAF9F5;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
         }
         .card-img-box img {
             display: block; width: 100%; height: auto;
@@ -69,95 +45,13 @@
         .hs-interactive:active {
             background-color: rgba(49, 130, 246, 0.16);
         }
-        .card-dark-bottom {
-            padding: 18px 20px 20px;
-            background: #26282C;
-            display: flex; flex-direction: column;
-        }
-        .dark-title {
-            font-size: 17px; font-weight: 800; color: #F4F5F7;
-            letter-spacing: -0.025em; line-height: 1.32;
-            margin-bottom: 8px;
-            word-break: keep-all;
-        }
-        .dark-desc {
-            font-size: 13.5px; font-weight: 600; color: #9CA0AA;
-            line-height: 1.45;
-            margin-bottom: 16px;
-        }
-        .dark-btn-row {
-            display: grid; gap: 10px; width: 100%;
-        }
-        .dark-btn-row.one-col {
-            grid-template-columns: 1fr;
-        }
-        .dark-btn-row.two-cols {
-            grid-template-columns: 1fr 1fr;
-        }
-        .btn-dark-open {
-            height: 48px; border-radius: 11px;
-            background: #383B43; border: 1px solid #4B4F5A;
-            color: #F2F3F7; font-size: 14.5px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; text-decoration: none; white-space: nowrap;
-        }
-        .btn-dark-open:active {
-            background: #464A54;
-        }
-        .btn-kakao-orig {
-            height: 48px; border-radius: 11px;
-            background: #FEE500; border: 1px solid #E5CC00;
-            color: #191919; font-size: 14.5px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; text-decoration: none; white-space: nowrap;
-        }
-        .btn-kakao-orig:active {
-            background: #E5CC00;
-        }
-        /* 전자명함 열기 상세 액션 모달 */
-        .modal-dim {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72);
-            z-index: 1200; display: none; align-items: center; justify-content: center; padding: 16px;
-        }
-        .modal-dim.open { display: flex; }
-        .modal-box {
-            width: 100%; max-width: 420px; background: #26282C;
-            border: 1.5px solid #3E424B; border-radius: 20px; overflow: hidden;
-            display: flex; flex-direction: column;
-        }
-        .modal-head {
-            padding: 15px 18px; border-bottom: 1px solid #363940;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .modal-head h2 { font-size: 15.5px; font-weight: 800; color: #F4F5F7; }
-        .modal-close {
-            width: 30px; height: 30px; border-radius: 50%; border: none;
-            background: #383B43; color: #D4D7DF; font-weight: 800; cursor: pointer;
-        }
-        .modal-body {
-            padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px;
-        }
-        .act-row-btn {
-            height: 46px; border-radius: 12px; padding: 0 14px;
-            background: #32353D; border: 1px solid #454954;
-            color: #F4F5F7; font-size: 13.5px; font-weight: 700;
-            display: flex; align-items: center; justify-content: space-between;
-            text-decoration: none; cursor: pointer;
-        }
-        .act-row-btn span.sub { font-size: 12px; color: #9CA0AA; font-weight: 600; }
     </style>
 </head>
 <body>
-    <div class="dark-card-wrap">
-        <div class="top-header-line">
-            <span class="top-header-title">[주식회사 에프엠] 장정원</span>
-            <a href="/fmssg/app/?user=jang" class="btn-top-gear" title="위젯 설정">⚙</a>
-        </div>
-
-        <div class="kakao-dark-card">
-            <div class="card-img-box">
-                <img src="/img/card/fmssg/jang.jpg" alt="[주식회사 에프엠] 장정원 전자명함">
-                
+    <main class="card-only-wrap">
+        <div class="card-img-box">
+            <img src="/img/card/fmssg/jang.jpg" alt="[주식회사 에프엠] 장정원 전자명함">
+            
             <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:2%;top:8%;width:34%;height:84%;z-index:4;" title="공식 홈페이지 이동"></a>
             <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="hs-area hs-interactive" style="right:2%;top:3%;width:24%;height:13%;z-index:9;" title="카카오톡 채널 상담"></a>
             <a href="tel:010-6634-8232" class="hs-area hs-interactive" style="left:36%;top:43%;width:62%;height:12%;z-index:6;" title="전화 걸기 (010-6634-8232)"></a>
@@ -165,78 +59,7 @@
             <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:66%;width:62%;height:11%;z-index:6;" title="공식 홈페이지 이동"></a>
             <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:77%;width:62%;height:15%;z-index:6;" title="오시는 길 지도 보기"></a>
         
-            </div>
-            <div class="card-dark-bottom">
-                <div class="dark-title">[주식회사 에프엠] 장정원 전자명함</div>
-                <div class="dark-desc">
-                    ▼ 위 전자명함을 클릭하시면<br>
-                    전화·이메일·홈페이지·위치가 바로 연결됩니다.
-                </div>
-                
-            <div class="dark-btn-row two-cols">
-                <button type="button" class="btn-dark-open" id="btnOpenActionModal">전자명함 열기</button>
-                <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="btn-kakao-orig">카카오톡채널 열기</a>
-            </div>
-        
-            </div>
         </div>
-    </div>
-
-    <div class="modal-dim" id="actionModal">
-        <div class="modal-box">
-            <div class="modal-head">
-                <h2>[주식회사 에프엠] 장정원 전자명함</h2>
-                <button type="button" class="modal-close" id="btnCloseActionModal">✕</button>
-            </div>
-            <div class="modal-body">
-                <a href="tel:010-6634-8232" class="act-row-btn"><span>📞 전화 걸기</span><span class="sub">010-6634-8232</span></a>
-                <a href="mailto:fmssg@fmssg.co.kr" class="act-row-btn"><span>✉️ 이메일 보내기</span><span class="sub">fmssg@fmssg.co.kr</span></a>
-                <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="act-row-btn"><span>🌐 홈페이지 열기</span><span class="sub">fmssg.co.kr</span></a>
-                <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" class="act-row-btn"><span>📍 오시는 길 지도</span><span class="sub">네이버 지도</span></a>
-                <a href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQNClZFUlNJT046My4wDQpGTjrsnqXsoJXsm5ANCk467J6l7KCV7JuQOzs7Ow0KT1JHOuyjvOyLne2ajOyCrCDsl5DtlITsl6ANClRJVExFOg0KVEVMO1RZUEU9Q0VMTCxWT0lDRTowMTAtNjYzNC04MjMyDQpFTUFJTDtUWVBFPUlOVEVSTkVULFdPUks6Zm1zc2dAZm1zc2cuY28ua3INClVSTDpodHRwczovL2Ztc3NnLmNvLmtyDQpBRFI7VFlQRT1XT1JLOjs767aA7IKwIOu2gOyCsOynhOq1rCDspJHslZnrjIDroZw2NjbrsojquLggNTAg642U7IO17IS87Yq465+0IEXrj5kgM+y4tTs7OzsNCkVORDpWQ0FSRA==" download="주식회사 에프엠_장정원.vcf" class="act-row-btn"><span>📇 휴대폰 연락처 저장</span><span class="sub">vCard (.vcf)</span></a>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
-                    <button type="button" class="btn-dark-open" id="btnModalSms" style="height:44px;font-size:13.5px;">문자메시지 전송</button>
-                    <button type="button" class="btn-kakao-orig" id="btnModalKakao" style="height:44px;font-size:13.5px;">카카오톡 공유</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        (function() {
-            const PAGE_URL = "https://j2u11838.github.io/fmssg/jang/";
-            const TITLE_TXT = "[주식회사 에프엠] 장정원 전자명함";
-            const SMS_BODY = "[주식회사 에프엠] 장정원 전자명함\nhttps://j2u11838.github.io/fmssg/jang/";
-            const modal = document.getElementById("actionModal");
-
-            document.getElementById("btnOpenActionModal").addEventListener("click", function() {
-                modal.classList.add("open");
-            });
-            document.getElementById("btnCloseActionModal").addEventListener("click", function() {
-                modal.classList.remove("open");
-            });
-            modal.addEventListener("click", function(e) {
-                if (e.target === modal) modal.classList.remove("open");
-            });
-
-            document.getElementById("btnModalSms").addEventListener("click", function() {
-                const sep = /iPad|iPhone|iPod/i.test(navigator.userAgent) ? "&" : "?";
-                window.location.href = "sms:" + sep + "body=" + encodeURIComponent(SMS_BODY);
-            });
-
-            document.getElementById("btnModalKakao").addEventListener("click", async function() {
-                if (navigator.share) {
-                    try {
-                        await navigator.share({ url: PAGE_URL });
-                        return;
-                    } catch (e) {}
-                }
-                try {
-                    await navigator.clipboard.writeText(PAGE_URL);
-                    alert("전자명함 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
-                } catch (e) {}
-            });
-        })();
-    </script>
+    </main>
 </body>
 </html>
