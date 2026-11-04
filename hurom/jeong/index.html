@@ -204,7 +204,7 @@
         (function() {
             const PAGE_URL = "https://j2u11838.github.io/hurom/jeong/";
             const TITLE_TXT = "[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함";
-            const SMS_BODY = "[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함\n• 전화: 010-4124-9617\n• 이메일: hjeong@hurom.com\n• 홈페이지: https://www.hurom.co.kr\n• 주소: 경남 김해시 주촌면 골든루트로 80-60\n• 지도: https://map.naver.com/p/search/%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%A3%BC%EC%B4%8C%EB%A9%B4%20%EA%B3%A8%EB%93%A0%EB%A3%A8%ED%8A%B8%EB%A1%9C%2080-60\n• 전자명함: https://j2u11838.github.io/hurom/jeong/";
+            const SMS_BODY = "[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함\nhttps://j2u11838.github.io/hurom/jeong/";
             const modal = document.getElementById("actionModal");
 
             document.getElementById("btnOpenActionModal").addEventListener("click", function() {
@@ -225,13 +225,13 @@
             document.getElementById("btnModalKakao").addEventListener("click", async function() {
                 if (navigator.share) {
                     try {
-                        await navigator.share({ title: TITLE_TXT, text: SMS_BODY, url: PAGE_URL });
+                        await navigator.share({ url: PAGE_URL });
                         return;
                     } catch (e) {}
                 }
                 try {
-                    await navigator.clipboard.writeText(SMS_BODY);
-                    alert("전자명함 정보와 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
+                    await navigator.clipboard.writeText(PAGE_URL);
+                    alert("전자명함 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
                 } catch (e) {}
             });
         })();

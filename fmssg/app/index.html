@@ -303,7 +303,7 @@
         body:not(.settings-open) .preview-area {
             padding: 20px 16px calc(24px + env(safe-area-inset-bottom, 0px));
         }
-        #fl_preview_container {
+        #ios_inline_card_box {
             display: none !important;
         }
 
@@ -1112,29 +1112,27 @@
                 history.pushState({ modal: "offlineCardViewerModal" }, "");
             }
 
+            function getCardCloudUrl(prof) {
+                if (prof && prof.cardUrl && prof.cardUrl.startsWith("https://")) {
+                    return prof.cardUrl;
+                }
+                const slug = (prof && prof.slug) ? prof.slug : "kim";
+                return "https://j2u11838.github.io/fmssg/" + slug + "/";
+            }
+
             function buildShareText(prof) {
                 if (!prof) return "";
-                const compAddr = "부산 부산진구 중앙대로666번길 50 더샵센트럴 E동 3층";
-                const hasCleanDomain = DOMAIN_URL && !DOMAIN_URL.includes("58.230.230.103");
-                let txt = "[" + COMPANY_NAME + "] " + prof.ownerName + " 전자명함\n"
-                    + "• 전화: " + prof.phone
-                    + (prof.email ? ("\n• 이메일: " + prof.email) : "")
-                    + (hasCleanDomain ? ("\n• 홈페이지: " + DOMAIN_URL) : "")
-                    + (compAddr ? ("\n• 주소: " + compAddr + "\n• 지도: https://map.naver.com/p/search/" + encodeURIComponent(compAddr)) : "")
-                    + (("fmssg" === "fmssg" && KAKAO_CHANNEL) ? ("\n• 카카오톡 채널: " + KAKAO_CHANNEL) : "");
-                return txt;
+                return "[" + COMPANY_NAME + "] " + prof.ownerName + " 전자명함
+" + getCardCloudUrl(prof);
             }
 
             async function shareViaKakaoOrChooser() {
                 const prof = PROFILES[state.userSlug] || PROFILES["kim"];
                 if (!prof) return;
-                const shareTxt = buildShareText(prof);
-                const shareUrl = prof.cardUrl || window.location.href;
+                const shareUrl = getCardCloudUrl(prof);
                 if (navigator.share) {
                     try {
                         await navigator.share({
-                            title: "[" + COMPANY_NAME + "] " + prof.ownerName + " 전자명함",
-                            text: shareTxt,
                             url: shareUrl
                         });
                         return;

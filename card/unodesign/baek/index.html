@@ -205,7 +205,7 @@
         (function() {
             const PAGE_URL = "https://j2u11838.github.io/unodesign/baek/";
             const TITLE_TXT = "[우노디자인] 백효진 대표 전자명함";
-            const SMS_BODY = "[우노디자인] 백효진 대표 전자명함\n• 전화: 010-4008-3963\n• 이메일: uno015@naver.com\n• 주소: 부산광역시 부산진구 중앙대로 666번길 50, 더샵센트럴스타 E동 3층\n• 지도: https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C%20666%EB%B2%88%EA%B8%B8%2050%2C%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8A%A4%ED%83%80%20E%EB%8F%99%203%EC%B8%B5\n• 전자명함: https://j2u11838.github.io/unodesign/baek/";
+            const SMS_BODY = "[우노디자인] 백효진 대표 전자명함\nhttps://j2u11838.github.io/unodesign/baek/";
             const modal = document.getElementById("actionModal");
 
             document.getElementById("btnOpenActionModal").addEventListener("click", function() {
@@ -226,13 +226,13 @@
             document.getElementById("btnModalKakao").addEventListener("click", async function() {
                 if (navigator.share) {
                     try {
-                        await navigator.share({ title: TITLE_TXT, text: SMS_BODY, url: PAGE_URL });
+                        await navigator.share({ url: PAGE_URL });
                         return;
                     } catch (e) {}
                 }
                 try {
-                    await navigator.clipboard.writeText(SMS_BODY);
-                    alert("전자명함 정보와 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
+                    await navigator.clipboard.writeText(PAGE_URL);
+                    alert("전자명함 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
                 } catch (e) {}
             });
         })();

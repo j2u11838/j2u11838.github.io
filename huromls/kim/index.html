@@ -204,7 +204,7 @@
         (function() {
             const PAGE_URL = "https://j2u11838.github.io/huromls/kim/";
             const TITLE_TXT = "[휴롬엘에스] 김성훈 HR본부 | 본부장 전자명함";
-            const SMS_BODY = "[휴롬엘에스] 김성훈 HR본부 | 본부장 전자명함\n• 전화: 010-5377-0714\n• 이메일: sh.kim@hurom.com\n• 홈페이지: https://www.hurom.co.kr\n• 주소: 서울특별시 강남구 도곡로 205 (휴롬빌딩)\n• 지도: https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EA%B3%A1%EB%A1%9C%20205%20%28%ED%9C%B4%EB%A1%AC%EB%B9%8C%EB%94%A9%29\n• 전자명함: https://j2u11838.github.io/huromls/kim/";
+            const SMS_BODY = "[휴롬엘에스] 김성훈 HR본부 | 본부장 전자명함\nhttps://j2u11838.github.io/huromls/kim/";
             const modal = document.getElementById("actionModal");
 
             document.getElementById("btnOpenActionModal").addEventListener("click", function() {
@@ -225,13 +225,13 @@
             document.getElementById("btnModalKakao").addEventListener("click", async function() {
                 if (navigator.share) {
                     try {
-                        await navigator.share({ title: TITLE_TXT, text: SMS_BODY, url: PAGE_URL });
+                        await navigator.share({ url: PAGE_URL });
                         return;
                     } catch (e) {}
                 }
                 try {
-                    await navigator.clipboard.writeText(SMS_BODY);
-                    alert("전자명함 정보와 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
+                    await navigator.clipboard.writeText(PAGE_URL);
+                    alert("전자명함 링크가 복사되었습니다. 카카오톡 대화창에 붙여넣기 해주세요.");
                 } catch (e) {}
             });
         })();
