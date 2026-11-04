@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="주식회사 에프엠 명함">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="주식회사 에프엠 전자명함">
+    <meta property="og:title" content="[주식회사 에프엠] 김동철 CEO 전자명함">
+    <meta property="og:description" content="명함 속 전화번호 · 이메일 · 홈페이지 · 오시는 길을 터치하면 바로 연결됩니다.">
+    <meta property="og:image" content="/img/card/fmssg/kim.jpg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="612">
+    <title>[주식회사 에프엠] 김동철 CEO 전자명함</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: rgba(49, 130, 246, 0.12); }
+        html, body {
+            width: 100%; min-height: 100dvh;
+            background: #EEF2F6;
+            font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            color: #191F28;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 16px 14px calc(28px + env(safe-area-inset-bottom, 0px));
+        }
+        .card-shell {
+            width: 100%; max-width: 460px;
+            background: #FFFFFF;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 22px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+            padding: 16px;
+            display: flex; flex-direction: column; gap: 14px;
+        }
+        .shell-header {
+            display: flex; align-items: center; justify-content: space-between; gap: 8px;
+            padding-bottom: 10px; border-bottom: 1px solid #E2E8F0;
+        }
+        .shell-title-wrap {
+            display: flex; align-items: center; gap: 8px; min-width: 0;
+        }
+        .shell-accent-bar {
+            width: 4px; height: 18px; border-radius: 2px; background: #724B38; flex-shrink: 0;
+        }
+        .shell-title {
+            font-size: 16px; font-weight: 800; color: #191F28; letter-spacing: -0.025em;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .shell-sub-badge {
+            font-size: 11.5px; font-weight: 700; color: #1B64DA; background: #E8F3FF;
+            border: 1px solid #C9E2FF; border-radius: 999px; padding: 4px 10px; white-space: nowrap; flex-shrink: 0;
+            text-decoration: none;
+        }
+        .interactive-card-frame {
+            position: relative; width: 100%;
+            border-radius: 16px; overflow: hidden;
+            border: 1.5px solid #D5DCE4;
+            box-shadow: 0 6px 18px rgba(25, 31, 40, 0.09);
+            background: #EEEBE6;
+        }
+        .interactive-card-frame img {
+            display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none;
+        }
+        .hs-area {
+            position: absolute; display: block; text-decoration: none;
+            border-radius: 8px; transition: background-color 0.15s ease;
+        }
+        .hs-interactive:active {
+            background-color: rgba(49, 130, 246, 0.18);
+        }
+        .touch-guide-bar {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;
+            padding: 7px 10px; font-size: 12px; font-weight: 700; color: #475569; text-align: center;
+        }
+        .action-list {
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .action-item {
+            display: flex; align-items: center; gap: 11px;
+            width: 100%; padding: 11px 13px;
+            background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px;
+            text-decoration: none; color: #191F28;
+            transition: transform 0.1s ease, border-color 0.15s ease, background-color 0.15s ease;
+        }
+        .action-item:active {
+            transform: scale(0.985); background: #EFF6FF; border-color: #93C5FD;
+        }
+        .kakao-ch-item {
+            background: #FFFBEB; border-color: #FCD34D;
+        }
+        .act-badge {
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; font-weight: 800; flex-shrink: 0;
+        }
+        .act-texts {
+            display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1;
+        }
+        .act-label {
+            font-size: 11.5px; font-weight: 700; color: #64748B;
+        }
+        .act-val {
+            font-size: 14px; font-weight: 800; color: #191F28;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            font-variant-numeric: tabular-nums;
+        }
+        .act-arrow {
+            font-size: 18px; font-weight: 800; color: #94A3B8; flex-shrink: 0;
+        }
+        .bottom-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 2px;
+        }
+        .btn-bottom {
+            height: 46px; border-radius: 13px; font-size: 13.5px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            cursor: pointer; text-decoration: none; border: none; white-space: nowrap;
+        }
+        .btn-vcard {
+            grid-column: 1 / -1;
+            background: #1E293B; color: #FFFFFF;
+        }
+        .btn-sms {
+            background: #E3DDD3; color: #3D352E; border: 1.5px solid #C6BBA8;
+        }
+        .btn-kakao {
+            background: #FEE500; color: #191919; border: 1.5px solid #E5CC00;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-shell">
+        <div class="shell-header">
+            <div class="shell-title-wrap">
+                <span class="shell-accent-bar"></span>
+                <h1 class="shell-title">주식회사 에프엠 · 김동철 CEO</h1>
+            </div>
+            <a href="/fmssg/app/?user=kim" class="shell-sub-badge">전체 임직원 명함</a>
+        </div>
+
+        <div class="interactive-card-frame">
+            <img src="/img/card/fmssg/kim.jpg" alt="[주식회사 에프엠] 김동철 CEO 전자명함">
+            
+            <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:2%;top:8%;width:34%;height:84%;z-index:4;" title="공식 홈페이지 이동"></a>
+            <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="hs-area hs-interactive" style="right:2%;top:3%;width:24%;height:13%;z-index:9;" title="카카오톡 채널 상담"></a>
+            <a href="tel:010-3498-8864" class="hs-area hs-interactive" style="left:36%;top:43%;width:62%;height:12%;z-index:6;" title="전화 걸기 (010-3498-8864)"></a>
+            <a href="mailto:fmssg@fmssg.co.kr" class="hs-area hs-interactive" style="left:36%;top:55%;width:62%;height:11%;z-index:6;" title="이메일 보내기 (fmssg@fmssg.co.kr)"></a>
+            <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:66%;width:62%;height:11%;z-index:6;" title="공식 홈페이지 이동"></a>
+            <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:77%;width:62%;height:15%;z-index:6;" title="오시는 길 지도 보기"></a>
+        
+        </div>
+
+        <div class="touch-guide-bar">
+            👆 위 명함의 전화번호 · 이메일 · 홈페이지 · 주소를 터치하면 바로 열립니다
+        </div>
+
+        <div class="action-list">
+            <a href="tel:010-3498-8864" class="action-item">
+                <span class="act-badge" style="background:#DCFCE7;color:#059669;">📞</span>
+                <div class="act-texts">
+                    <span class="act-label">휴대폰 · 직통전화 바로 걸기</span>
+                    <span class="act-val">010-3498-8864</span>
+                </div>
+                <span class="act-arrow">›</span>
+            </a>
+
+            <a href="mailto:fmssg@fmssg.co.kr" class="action-item">
+                <span class="act-badge" style="background:#E0E7FF;color:#4F46E5;">✉️</span>
+                <div class="act-texts">
+                    <span class="act-label">이메일 바로 보내기</span>
+                    <span class="act-val">fmssg@fmssg.co.kr</span>
+                </div>
+                <span class="act-arrow">›</span>
+            </a>
+
+            <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="action-item">
+                <span class="act-badge" style="background:#CCFBF1;color:#0D9488;">🌐</span>
+                <div class="act-texts">
+                    <span class="act-label">공식 홈페이지 바로가기</span>
+                    <span class="act-val">fmssg.co.kr</span>
+                </div>
+                <span class="act-arrow">›</span>
+            </a>
+
+            <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" class="action-item">
+                <span class="act-badge" style="background:#FEF3C7;color:#D97706;">📍</span>
+                <div class="act-texts">
+                    <span class="act-label">오시는 길 · 네이버 지도 안내</span>
+                    <span class="act-val">부산 부산진구 중앙대로666번길 50 더샵센트럴 E동 3층</span>
+                </div>
+                <span class="act-arrow">›</span>
+            </a>
+
+            
+            <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="action-item kakao-ch-item">
+                <span class="act-badge" style="background:#FEE500;color:#191919;">Ch+</span>
+                <div class="act-texts">
+                    <span class="act-label">카카오톡 채널 상담</span>
+                    <span class="act-val">주식회사 에프엠 공식 채널 바로가기</span>
+                </div>
+                <span class="act-arrow">›</span>
+            </a>
+        
+        </div>
+
+        <div class="bottom-grid">
+            <a href="data:text/vcard;charset=utf-8;base64,QkVHSU46VkNBUkQNClZFUlNJT046My4wDQpGTjrquYDrj5nssqANCk466rmA64+Z7LKgOzs7Ow0KT1JHOuyjvOyLne2ajOyCrCDsl5DtlITsl6ANClRJVExFOkNFTw0KVEVMO1RZUEU9Q0VMTCxWT0lDRTowMTAtMzQ5OC04ODY0DQpFTUFJTDtUWVBFPUlOVEVSTkVULFdPUks6Zm1zc2dAZm1zc2cuY28ua3INClVSTDpodHRwczovL2Ztc3NnLmNvLmtyDQpBRFI7VFlQRT1XT1JLOjs767aA7IKwIOu2gOyCsOynhOq1rCDspJHslZnrjIDroZw2NjbrsojquLggNTAg642U7IO17IS87Yq465+0IEXrj5kgM+y4tTs7OzsNCkVORDpWQ0FSRA==" download="주식회사 에프엠_김동철 CEO.vcf" class="btn-bottom btn-vcard">
+                📇 휴대폰 연락처(주소록)에 바로 저장
+            </a>
+            <button type="button" class="btn-bottom btn-sms" id="btnShareSms">문자메시지 전송</button>
+            <button type="button" class="btn-bottom btn-kakao" id="btnShareKakao">카카오톡 전송</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const KAKAOLINK_URI = "kakaolink://send?appkey=e2cdeef051c3ca9aa91e953717604a65&appver=1.0&linkver=4.0&extras=%7B%22KA%22%3A%22sdk%2F2.7.2%20os%2Fjavascript%20sdk_type%2Fjavascript%20lang%2Fko-KR%20device%2FWin32%20origin%2Fhttp%253A%252F%252Flocalhost%253A7713%22%7D&template_json=%7B%22P%22%3A%7B%22TP%22%3A%22Feed%22%2C%22ME%22%3A%22%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EC%97%90%ED%94%84%EC%97%A0%20%C2%B7%20%EA%B9%80%EB%8F%99%EC%B2%A0%20CEO%20%EC%97%B0%EB%9D%BD%EC%B2%98%20%C2%B7%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%C2%B7%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%C2%B7%20%EC%98%A4%EC%8B%9C%EB%8A%94%20%EA%B8%B8%20%EB%B0%94%EB%A1%9C%EA%B0%80%EA%B8%B0%22%2C%22SID%22%3A%22capri_1618768%22%2C%22DID%22%3A%223139%22%2C%22SDID%22%3A%223139%22%2C%22SNM%22%3A%22%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EC%97%90%ED%94%84%EC%97%A0%22%2C%22SIC%22%3A%22https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbO698D%2FdJMcacSAJDP%2FLWZ4pwV5Kqxbs2lwsoJ3y0%2Fkakaolink40_original.jpg%22%2C%22L%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22LMO%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%7D%2C%22SL%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22LMO%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%7D%2C%22VA%22%3A%226.0.0%22%2C%22VI%22%3A%225.9.8%22%2C%22VW%22%3A%222.5.1%22%2C%22VM%22%3A%222.2.0%22%2C%22FW%22%3Atrue%2C%22RF%22%3A%22out-client%22%7D%2C%22C%22%3A%7B%22THL%22%3A%5B%7B%22TH%22%3A%7B%22THU%22%3A%22https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbO698D%2FdJMcacSAJDP%2FLWZ4pwV5Kqxbs2lwsoJ3y0%2Fkakaolink40_original.jpg%22%2C%22W%22%3A1080%2C%22H%22%3A612%7D%2C%22L%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22LMO%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%7D%7D%5D%2C%22TI%22%3A%7B%22TD%22%3A%7B%22T%22%3A%22%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EC%97%90%ED%94%84%EC%97%A0%20%C2%B7%20%EA%B9%80%EB%8F%99%EC%B2%A0%20CEO%22%2C%22D%22%3A%22%EC%97%B0%EB%9D%BD%EC%B2%98%20%C2%B7%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%C2%B7%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%C2%B7%20%EC%98%A4%EC%8B%9C%EB%8A%94%20%EA%B8%B8%20%EB%B0%94%EB%A1%9C%EA%B0%80%EA%B8%B0%22%7D%2C%22L%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22LMO%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%7D%7D%2C%22BUL%22%3A%5B%7B%22BU%22%3A%7B%22T%22%3A%22%EC%A0%84%EC%9E%90%EB%AA%85%ED%95%A8%20%EC%97%B4%EA%B8%B0%22%7D%2C%22L%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22LMO%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%7D%7D%2C%7B%22BU%22%3A%7B%22T%22%3A%22%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EC%B1%84%EB%84%90%22%7D%2C%22L%22%3A%7B%22LPC%22%3A%22https%3A%2F%2Fpf.kakao.com%2F_xkexben%2Fchat%22%2C%22LMO%22%3A%22https%3A%2F%2Fpf.kakao.com%2F_xkexben%2Fchat%22%7D%7D%5D%7D%2C%22K%22%3A%7B%22ti%22%3A%223139%22%2C%22ai%22%3A%221618768%22%7D%7D&template_args=%7B%22%24%7BIMAGE_WIDTH%7D%22%3A%221080%22%2C%22%24%7BIMAGE_HEIGHT%7D%22%3A%22612%22%2C%22%24%7BIMAGE_COUNT%7D%22%3A%221%22%2C%22%24%7BIMAGE_URL%7D%22%3A%22https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbO698D%2FdJMcacSAJDP%2FLWZ4pwV5Kqxbs2lwsoJ3y0%2Fkakaolink40_original.jpg%22%2C%22%24%7BTITLE%7D%22%3A%22%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%20%EC%97%90%ED%94%84%EC%97%A0%20%C2%B7%20%EA%B9%80%EB%8F%99%EC%B2%A0%20CEO%22%2C%22%24%7BDESCRIPTION%7D%22%3A%22%EC%97%B0%EB%9D%BD%EC%B2%98%20%C2%B7%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%C2%B7%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%C2%B7%20%EC%98%A4%EC%8B%9C%EB%8A%94%20%EA%B8%B8%20%EB%B0%94%EB%A1%9C%EA%B0%80%EA%B8%B0%22%2C%22%24%7BWEB_URL%7D%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22%24%7BMOBILE_WEB_URL%7D%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22%24%7BFIRST_BUTTON_TITLE%7D%22%3A%22%EC%A0%84%EC%9E%90%EB%AA%85%ED%95%A8%20%EC%97%B4%EA%B8%B0%22%2C%22%24%7BFIRST_BUTTON_WEB_URL%7D%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22%24%7BFIRST_BUTTON_MOBILE_WEB_URL%7D%22%3A%22https%3A%2F%2Fj2u11838.github.io%2Ffmssg%2Fkim%22%2C%22%24%7BSECOND_BUTTON_TITLE%7D%22%3A%22%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EC%B1%84%EB%84%90%22%2C%22%24%7BSECOND_BUTTON_WEB_URL%7D%22%3A%22https%3A%2F%2Fpf.kakao.com%2F_xkexben%2Fchat%22%2C%22%24%7BSECOND_BUTTON_MOBILE_WEB_URL%7D%22%3A%22https%3A%2F%2Fpf.kakao.com%2F_xkexben%2Fchat%22%7D&template_id=3139";
+            const SMS_BODY = "[주식회사 에프엠] 김동철 CEO 전자명함\n• 전화: 010-3498-8864\n• 이메일: fmssg@fmssg.co.kr\n• 홈페이지: https://fmssg.co.kr\n• 주소: 부산 부산진구 중앙대로666번길 50 더샵센트럴 E동 3층\n• 지도: https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5\n• 카카오톡 채널: https://pf.kakao.com/_xkexben/chat";
+
+            document.getElementById("btnShareSms").addEventListener("click", function() {
+                const sep = /iPad|iPhone|iPod/i.test(navigator.userAgent) ? "&" : "?";
+                window.location.href = "sms:" + sep + "body=" + encodeURIComponent(SMS_BODY);
+            });
+
+            document.getElementById("btnShareKakao").addEventListener("click", function() {
+                window.location.href = KAKAOLINK_URI;
+            });
+        })();
+    </script>
+</body>
+</html>
