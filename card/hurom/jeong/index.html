@@ -11,28 +11,54 @@
     <meta property="og:site_name" content="(주)휴롬 전자명함">
     <meta property="og:title" content="[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함">
     <meta property="og:description" content="▼ 위 전자명함을 클릭하시면 전화·이메일·홈페이지·위치가 바로 연결됩니다.">
+    <meta property="og:url" content="https://www.hurom.co.kr">
     <meta property="og:image" content="https://j2u11838.github.io/img/card/hurom/jeong.jpg">
     <meta property="og:image:width" content="1020">
     <meta property="og:image:height" content="540">
     <title>[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html, body {
             width: 100%; min-height: 100dvh;
             background: #14161A;
+            font-family: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            color: #F4F5F7;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 18px 14px calc(24px + env(safe-area-inset-bottom, 0px));
         }
-        .card-only-wrap {
-            width: 100%; max-width: 540px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        /* 2번 캡처: 상단 헤더 + 다크 카드(명함 + 하단 검은색 박스 + 전자명함 열기 버튼) */
+        .dark-card-wrap {
+            width: 100%; max-width: 480px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .top-header-line {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 4px;
+        }
+        .top-header-title {
+            font-size: 15.5px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .btn-top-gear {
+            width: 34px; height: 34px; border-radius: 10px;
+            background: #26282C; border: 1px solid #3A3D45;
+            color: #D4D7DF; font-size: 16px; font-weight: 800;
+            display: inline-flex; align-items: center; justify-content: center;
+            text-decoration: none; cursor: pointer; flex-shrink: 0;
+        }
+        .kakao-dark-card {
+            width: 100%;
+            background: #26282C;
+            border: 1.5px solid #363940;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
         }
         .card-img-box {
             position: relative; width: 100%;
             background: #FAF9F5;
-            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
         }
         .card-img-box img {
             display: block; width: 100%; height: auto;
@@ -45,20 +71,135 @@
         .hs-interactive:active {
             background-color: rgba(49, 130, 246, 0.16);
         }
+        .card-dark-bottom {
+            padding: 18px 20px 20px;
+            background: #26282C;
+            display: flex; flex-direction: column;
+        }
+        .dark-title {
+            font-size: 17px; font-weight: 800; color: #F4F5F7;
+            letter-spacing: -0.025em; line-height: 1.32;
+            margin-bottom: 8px;
+            word-break: keep-all;
+        }
+        .dark-desc {
+            font-size: 13.5px; font-weight: 600; color: #9CA0AA;
+            line-height: 1.45;
+            margin-bottom: 16px;
+        }
+        .dark-btn-row {
+            display: grid; gap: 10px; width: 100%;
+        }
+        .dark-btn-row.one-col {
+            grid-template-columns: 1fr;
+        }
+        .dark-btn-row.two-cols {
+            grid-template-columns: 1fr 1fr;
+        }
+        .btn-dark-open {
+            height: 48px; border-radius: 11px;
+            background: #383B43; border: 1px solid #4B4F5A;
+            color: #F2F3F7; font-size: 14.5px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; text-decoration: none; white-space: nowrap;
+        }
+        .btn-dark-open:active {
+            background: #464A54;
+        }
+        .btn-kakao-orig {
+            height: 48px; border-radius: 11px;
+            background: #FEE500; border: 1px solid #E5CC00;
+            color: #191919; font-size: 14.5px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; text-decoration: none; white-space: nowrap;
+        }
+        .btn-kakao-orig:active {
+            background: #E5CC00;
+        }
+        /* 3번 캡처: [전자명함 열기] 클릭 시 오직 명함 1장만 단독으로 표시되고 각 항목 클릭 시 바로 연결 */
+        body.mode-card-only .top-header-line,
+        body.mode-card-only .card-dark-bottom {
+            display: none !important;
+        }
+        body.mode-card-only .dark-card-wrap {
+            max-width: 540px;
+        }
+        body.mode-card-only .kakao-dark-card {
+            background: transparent;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+        }
+        body.mode-card-only .card-img-box {
+            border-radius: 16px;
+        }
     </style>
 </head>
 <body>
-    <main class="card-only-wrap">
-        <div class="card-img-box">
-            <img src="/img/card/hurom/jeong.jpg" alt="[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함">
-            
+    <main class="dark-card-wrap" id="cardMainWrap">
+        <div class="top-header-line">
+            <span class="top-header-title">[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장</span>
+            <a href="/hurom/app/?user=jeong" class="btn-top-gear" title="위젯 설정">⚙</a>
+        </div>
+
+        <div class="kakao-dark-card">
+            <div class="card-img-box">
+                <img src="/img/card/hurom/jeong.jpg" alt="[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함">
+                
             <a href="https://www.hurom.co.kr" target="_blank" rel="noopener" class="hs-area" style="left:2%;top:2%;width:96%;height:64%;" title="공식 홈페이지 이동"></a>
             <a href="tel:010-4124-9617" class="hs-area hs-interactive" style="left:3%;top:67%;width:45%;height:15%;" title="전화 걸기 (010-4124-9617)"></a>
             <a href="mailto:hjeong@hurom.com" class="hs-area hs-interactive" style="left:48%;top:67%;width:49%;height:15%;" title="이메일 보내기 (hjeong@hurom.com)"></a>
             <a href="https://map.naver.com/p/search/%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%A3%BC%EC%B4%8C%EB%A9%B4%20%EA%B3%A8%EB%93%A0%EB%A3%A8%ED%8A%B8%EB%A1%9C%2080-60" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:3%;top:83%;width:62%;height:15%;" title="오시는 길 지도 보기"></a>
             <a href="https://www.hurom.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:65%;top:83%;width:32%;height:15%;" title="공식 홈페이지 이동"></a>
         
+            </div>
+            <div class="card-dark-bottom">
+                <div class="dark-title">[(주)휴롬] 정혁 구매본부 | 구매1팀 | 팀장 전자명함</div>
+                <div class="dark-desc">
+                    ▼ 위 전자명함을 클릭하시면<br>
+                    전화·이메일·홈페이지·위치가 바로 연결됩니다.
+                </div>
+                
+            <div class="dark-btn-row one-col">
+                <button type="button" class="btn-dark-open" id="btnOpenCardOnly">전자명함 열기</button>
+            </div>
+        
+            </div>
         </div>
     </main>
+
+    <script>
+        (function() {
+            const openBtn = document.getElementById("btnOpenCardOnly");
+            function enterCardOnlyMode(pushHist) {
+                document.body.classList.add("mode-card-only");
+                if (pushHist) {
+                    try {
+                        history.pushState({ cardOnly: true }, "", "?view=card");
+                    } catch (e) {}
+                }
+            }
+            function exitCardOnlyMode() {
+                document.body.classList.remove("mode-card-only");
+            }
+            if (openBtn) {
+                openBtn.addEventListener("click", function() {
+                    enterCardOnlyMode(true);
+                });
+            }
+            window.addEventListener("popstate", function() {
+                const params = new URLSearchParams(window.location.search);
+                if (params.get("view") === "card" || window.location.hash === "#card") {
+                    document.body.classList.add("mode-card-only");
+                } else {
+                    exitCardOnlyMode();
+                }
+            });
+            const initParams = new URLSearchParams(window.location.search);
+            if (initParams.get("view") === "card" || window.location.hash === "#card") {
+                document.body.classList.add("mode-card-only");
+            }
+        })();
+    </script>
 </body>
 </html>
