@@ -1,0 +1,10 @@
+{
+  "name": "우노디자인 전자명함 위젯",
+  "short_name": "우노디자인 명함",
+  "description": "우노디자인 아이폰 로컬 설치형 전자명함 위젯 앱",
+  "start_url": "/unodesign/app/",
+  "scope": "/unodesign/app/",
+  "display": "standalone",
+  "background_color": "#191F28",
+  "theme_color": "#191F28"
+}

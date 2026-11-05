@@ -1,0 +1,10 @@
+{
+  "name": "넷월드시스템(주) 전자명함 위젯",
+  "short_name": "넷월드시스템(주 명함",
+  "description": "넷월드시스템(주) 아이폰 로컬 설치형 전자명함 위젯 앱",
+  "start_url": "/netwoldeusiseu/app/",
+  "scope": "/netwoldeusiseu/app/",
+  "display": "standalone",
+  "background_color": "#191F28",
+  "theme_color": "#191F28"
+}

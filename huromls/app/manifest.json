@@ -1,0 +1,10 @@
+{
+  "name": "휴롬엘에스 전자명함 위젯",
+  "short_name": "휴롬엘에스 명함",
+  "description": "휴롬엘에스 아이폰 로컬 설치형 전자명함 위젯 앱",
+  "start_url": "/huromls/app/",
+  "scope": "/huromls/app/",
+  "display": "standalone",
+  "background_color": "#191F28",
+  "theme_color": "#191F28"
+}
