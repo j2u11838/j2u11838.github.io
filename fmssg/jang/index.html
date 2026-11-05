@@ -10,7 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="주식회사 에프엠 전자명함">
     <meta property="og:title" content="[주식회사 에프엠] 장정원 전자명함">
-    <meta property="og:description" content="▼ 위 전자명함을 클릭하시면 전화·이메일·홈페이지·위치가 바로 연결됩니다.">
+    <meta property="og:description" content="▼ 아래 전자명함 열기를 클릭하시면 전화·이메일·홈페이지·위치가 바로 연결됩니다.">
     <meta property="og:url" content="https://ecard-studio.surge.sh/fmssg/jang/">
     <meta property="og:image" content="https://ecard-studio.surge.sh/img/card/fmssg/jang.jpg">
     <meta property="og:image:width" content="1020">
@@ -27,38 +27,16 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 18px 14px calc(24px + env(safe-area-inset-bottom, 0px));
         }
-        /* 2번 캡처: 상단 헤더 + 다크 카드(명함 + 하단 검은색 박스 + 전자명함 열기 버튼) */
-        .dark-card-wrap {
-            width: 100%; max-width: 480px;
-            display: flex; flex-direction: column; gap: 10px;
-        }
-        .top-header-line {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 4px;
-        }
-        .top-header-title {
-            font-size: 15.5px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .btn-top-gear {
-            width: 34px; height: 34px; border-radius: 10px;
-            background: #26282C; border: 1px solid #3A3D45;
-            color: #D4D7DF; font-size: 16px; font-weight: 800;
-            display: inline-flex; align-items: center; justify-content: center;
-            text-decoration: none; cursor: pointer; flex-shrink: 0;
-        }
-        .kakao-dark-card {
-            width: 100%;
-            background: #26282C;
-            border: 1.5px solid #363940;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
+        .card-only-wrap {
+            width: 100%; max-width: 540px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         .card-img-box {
             position: relative; width: 100%;
             background: #FAF9F5;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
         }
         .card-img-box img {
             display: block; width: 100%; height: auto;
@@ -71,81 +49,13 @@
         .hs-interactive:active {
             background-color: rgba(49, 130, 246, 0.16);
         }
-        .card-dark-bottom {
-            padding: 18px 20px 20px;
-            background: #26282C;
-            display: flex; flex-direction: column;
-        }
-        .dark-title {
-            font-size: 17px; font-weight: 800; color: #F4F5F7;
-            letter-spacing: -0.025em; line-height: 1.32;
-            margin-bottom: 8px;
-            word-break: keep-all;
-        }
-        .dark-desc {
-            font-size: 13.5px; font-weight: 600; color: #9CA0AA;
-            line-height: 1.45;
-            margin-bottom: 16px;
-        }
-        .dark-btn-row {
-            display: grid; gap: 10px; width: 100%;
-        }
-        .dark-btn-row.one-col {
-            grid-template-columns: 1fr;
-        }
-        .dark-btn-row.two-cols {
-            grid-template-columns: 1fr 1fr;
-        }
-        .btn-dark-open {
-            height: 48px; border-radius: 11px;
-            background: #383B43; border: 1px solid #4B4F5A;
-            color: #F2F3F7; font-size: 14.5px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; text-decoration: none; white-space: nowrap;
-        }
-        .btn-dark-open:active {
-            background: #464A54;
-        }
-        .btn-kakao-orig {
-            height: 48px; border-radius: 11px;
-            background: #FEE500; border: 1px solid #E5CC00;
-            color: #191919; font-size: 14.5px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; text-decoration: none; white-space: nowrap;
-        }
-        .btn-kakao-orig:active {
-            background: #E5CC00;
-        }
-        /* 3번 캡처: [전자명함 열기] 클릭 시 오직 명함 1장만 단독으로 표시되고 각 항목 클릭 시 바로 연결 */
-        body.mode-card-only .top-header-line,
-        body.mode-card-only .card-dark-bottom {
-            display: none !important;
-        }
-        body.mode-card-only .dark-card-wrap {
-            max-width: 540px;
-        }
-        body.mode-card-only .kakao-dark-card {
-            background: transparent;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
-        }
-        body.mode-card-only .card-img-box {
-            border-radius: 16px;
-        }
     </style>
 </head>
 <body>
-    <main class="dark-card-wrap" id="cardMainWrap">
-        <div class="top-header-line">
-            <span class="top-header-title">[주식회사 에프엠] 장정원</span>
-            <a href="/fmssg/app/?user=jang" class="btn-top-gear" title="위젯 설정">⚙</a>
-        </div>
-
-        <div class="kakao-dark-card">
-            <div class="card-img-box">
-                <img src="/img/card/fmssg/jang.jpg" alt="[주식회사 에프엠] 장정원 전자명함">
-                
+    <main class="card-only-wrap" id="cardMainWrap">
+        <div class="card-img-box">
+            <img src="/img/card/fmssg/jang.jpg" alt="[주식회사 에프엠] 장정원 전자명함">
+            
             <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:2%;top:8%;width:34%;height:84%;z-index:4;" title="공식 홈페이지 이동"></a>
             <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="hs-area hs-interactive" style="right:2%;top:3%;width:24%;height:13%;z-index:9;" title="카카오톡 채널 상담"></a>
             <a href="tel:010-6634-8232" class="hs-area hs-interactive" style="left:36%;top:43%;width:62%;height:12%;z-index:6;" title="전화 걸기 (010-6634-8232)"></a>
@@ -153,55 +63,7 @@
             <a href="https://fmssg.co.kr" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:66%;width:62%;height:11%;z-index:6;" title="공식 홈페이지 이동"></a>
             <a href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C666%EB%B2%88%EA%B8%B8%2050%20%EB%8D%94%EC%83%B5%EC%84%BC%ED%8A%B8%EB%9F%B4%20E%EB%8F%99%203%EC%B8%B5" target="_blank" rel="noopener" class="hs-area hs-interactive" style="left:36%;top:77%;width:62%;height:15%;z-index:6;" title="오시는 길 지도 보기"></a>
         
-            </div>
-            <div class="card-dark-bottom">
-                <div class="dark-title">[주식회사 에프엠] 장정원 전자명함</div>
-                <div class="dark-desc">
-                    ▼ 위 전자명함을 클릭하시면<br>
-                    전화·이메일·홈페이지·위치가 바로 연결됩니다.
-                </div>
-                
-            <div class="dark-btn-row two-cols">
-                <button type="button" class="btn-dark-open" id="btnOpenCardOnly">전자명함 열기</button>
-                <a href="https://pf.kakao.com/_xkexben/chat" target="_blank" rel="noopener" class="btn-kakao-orig">카카오톡채널 열기</a>
-            </div>
-        
-            </div>
         </div>
     </main>
-
-    <script>
-        (function() {
-            const openBtn = document.getElementById("btnOpenCardOnly");
-            function enterCardOnlyMode(pushHist) {
-                document.body.classList.add("mode-card-only");
-                if (pushHist) {
-                    try {
-                        history.pushState({ cardOnly: true }, "", "?view=card");
-                    } catch (e) {}
-                }
-            }
-            function exitCardOnlyMode() {
-                document.body.classList.remove("mode-card-only");
-            }
-            if (openBtn) {
-                openBtn.addEventListener("click", function() {
-                    enterCardOnlyMode(true);
-                });
-            }
-            window.addEventListener("popstate", function() {
-                const params = new URLSearchParams(window.location.search);
-                if (params.get("view") === "card" || window.location.hash === "#card") {
-                    document.body.classList.add("mode-card-only");
-                } else {
-                    exitCardOnlyMode();
-                }
-            });
-            const initParams = new URLSearchParams(window.location.search);
-            if (initParams.get("view") === "card" || window.location.hash === "#card") {
-                document.body.classList.add("mode-card-only");
-            }
-        })();
-    </script>
 </body>
 </html>
